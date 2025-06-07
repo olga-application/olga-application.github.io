@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My Professional Portfolio</title>
+<style>
+  /* Reset some default */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background-color: #121212; /* тёмный фон */
+    color: #e0e0e0; /* светло-серый текст */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px 40px;
+    min-height: 100vh;
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #00b8d4; /* яркий голубой */
+    letter-spacing: 1.2px;
+  }
+
+  p.description {
+    max-width: 640px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 40px;
+    color: #bbbbbb;
+    text-align: center;
+  }
+
+  .links-section {
+    max-width: 700px;
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #00b8d4;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #00b8d4;
+    padding-bottom: 6px;
+  }
+
+  ul.link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  ul.link-list li {
+    margin-bottom: 18px;
+  }
+
+  ul.link-list li a {
+    color: #81d4fa; /* более мягкий голубой */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.15rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+
+  ul.link-list li a:hover,
+  ul.link-list li a:focus {
+    border-color: #00b8d4;
+    outline: none;
+  }
+
+  .resume-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 24px;
+    background-color: #00b8d4;
+    color: #121212;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 184, 212, 0.5);
+    transition: background-color 0.3s ease;
+  }
+
+  .resume-link:hover,
+  .resume-link:focus {
+    background-color: #0093b8;
+    outline: none;
+  }
+
+  .qr-code-container {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .qr-code-container p {
+    color: #999999;
+    margin-bottom: 15px;
+    font-size: 1rem;
+  }
+
+  .qr-code-container img {
+    width: 180px;
+    height: 180px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #00b8d4;
+  }
+
+  footer {
+    margin-top: auto;
+    padding-top: 40px;
+    color: #444444;
+    font-size: 0.9rem;
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid #222;
+  }
+
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    .links-section {
+      max-width: 100%;
+    }
+
+    ul.link-list li a {
+      font-size: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <h1>My Professional Portfolio</h1>
+  <p class="description">
+    Welcome to my portfolio page. Below are links to five of my featured videos hosted on Vimeo, showcasing my work and expertise.  
+    You can also download my resume in PDF format.  
+    Feel free to scan the QR code at the bottom to visit my website or save my contact information.
+  </p>
+
+  <section class="links-section" aria-label="Portfolio Videos">
+    <h2 class="section-title">Portfolio Videos</h2>
+    <ul class="link-list">
+      <li><a href="https://vimeo.com/yourvideo1" target="_blank" rel="noopener noreferrer">Video 1: Course Introduction</a></li>
+      <li><a href="https://vimeo.com/yourvideo2" target="_blank" rel="noopener noreferrer">Video 2: Instructional Design Overview</a></li>
+      <li><a href="https://vimeo.com/yourvideo3" target="_blank" rel="noopener noreferrer">Video 3: Practical Training Session</a></li>
+      <li><a href="https://vimeo.com/yourvideo4" target="_blank" rel="noopener noreferrer">Video 4: Project Presentation</a></li>
+      <li><a href="https://vimeo.com/yourvideo5" target="_blank" rel="noopener noreferrer">Video 5: Client Feedback & Results</a></li>
+    </ul>
+  </section>
+
+  <section class="links-section" aria-label="Resume Download">
+    <h2 class="section-title">Resume</h2>
+    <a href="resume.pdf" target="_blank" class="resume-link" download>Download My Resume (PDF)</a>
+  </section>
+
+  <div class="qr-code-container" aria-label="QR code to website or contact">
+    <p>Scan the QR code to visit my website or save my contact info:</p>
+    <img src="qr-code.png" alt="QR Code to website or vCard" />
+  </div>
+
+  <footer>
+    &copy; 2025 Your Name. All rights reserved.
+  </footer>
+
+</body>
+</html>
