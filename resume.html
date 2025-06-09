@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olga D. - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #121212;
+      color: #f0f0f0;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Parallax Background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #00b8d4 0%, #00e5ff 100%);
+      opacity: 0.1;
+      z-index: -1;
+      transform: translateY(0);
+      transition: transform 0.1s ease;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: #1e1e1e;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 184, 212, 0.3);
+      display: flex;
+      overflow: hidden;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sidebar */
+    aside {
+      flex: 1 1 30%;
+      background: linear-gradient(180deg, #00b8d4 0%, #00e5ff 100%);
+      padding: 40px;
+      color: #121212;
+    }
+
+    aside h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      color: #121212;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: pulseText 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseText {
+      0%, 100% { text-shadow: 0 0 5px rgba(0, 184, 212, 0.5); }
+      50% { text-shadow: 0 0 15px rgba(0, 184, 212, 0.8); }
+    }
+
+    aside p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    aside p:hover {
+      transform: translateX(5px);
+    }
+
+    aside a {
+      color: #121212;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    aside a:hover {
+      color: #ffffff;
+    }
+
+    aside i {
+      font-size: 1.2rem;
+      color: #121212;
+      transition: transform 0.3s ease;
+    }
+
+    aside p:hover i {
+      transform: scale(1.2);
+    }
+
+    /* Main Content */
+    main {
+      flex: 1 1 70%;
+      padding: 40px;
+      background: #1e1e1e;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      color: #00b8d4;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      animation: slideInFromLeft 1s ease-in-out;
+    }
+
+    @keyframes slideInFromLeft {
+      from { transform: translateX(-100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #ccc;
+      text-transform: uppercase;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    section {
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      color: #00b8d4;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #00b8d4;
+      padding-bottom: 10px;
+      text-transform: uppercase;
+      animation: pulseText 2s infinite ease-in-out;
+    }
+
+    section p, section ul {
+      font-size: 1rem;
+      color: #f0f0f0;
+    }
+
+    section ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    section ul li {
+      position: relative;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    section ul li:hover {
+      transform: translateX(5px);
+    }
+
+    section ul li::before {
+      content: "•";
+      color: #00b8d4;
+      position: absolute;
+      left: -20px;
+      font-size: 1.2rem;
+    }
+
+    .job {
+      margin-bottom: 20px;
+    }
+
+    .job h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      color: #f0f0f0;
+      margin-bottom: 5px;
+      transition: color 0.3s ease;
+    }
+
+    .job h3:hover {
+      color: #00e5ff;
+    }
+
+    .job .details {
+      font-size: 0.95rem;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    /* Buttons */
+    .button-container {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .action-button {
+      display: inline-block;
+      position: relative;
+      background: transparent;
+      color: #00b8d4;
+      border: 2px solid #00b8d4;
+      padding: 12px 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      border-radius: 30px;
+      text-align: center;
+      transition: color 0.7s ease, transform 0.7s ease;
+      cursor: pointer;
+    }
+
+    .action-button::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #00b8d4, #00e5ff);
+      border-radius: 30px;
+      z-index: -1;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.7s ease;
+    }
+
+    .action-button:hover {
+      color: #121212;
+      transform: scale(1.05);
+    }
+
+    .action-button:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* Responsiveness */
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+
+      aside, main {
+        flex: 1 1 100%;
+      }
+
+      aside {
+        border-radius: 12px 12px 0 0;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+      }
+
+      .button-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      aside, main {
+        padding: 20px;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      aside h2, section h2 {
+        font-size: 1.3rem;
+      }
+
+      aside p, section p, section ul li {
+        font-size: 0.9rem;
+      }
+
+      .action-button {
+        padding: 10px 20px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar: Contact Information -->
+    <aside>
+      <h2>Contact</h2>
+      <p><i class="fab fa-github"></i><a href="https://olga-application.github.io" target="_blank" rel="noopener">olga-application.github.io</a></p>
+      <p><i class="fas fa-envelope"></i><a href="mailto:olga.application@outlook.com">olga.application@outlook.com</a></p>
+      <p><i class="fas fa-map-marker-alt"></i>EU-based | Remote-friendly</p>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <header>
+        <h1>Olga D.</h1>
+        <p>Instructional Design Specialist | Educational Program & EdTech Developer | International Project Lead in Education</p>
+      </header>
+
+      <section>
+        <h2>Profile</h2>
+        <p>Education specialist with over 10 years of experience in curriculum development, project management, and implementing innovative educational solutions. Holds a PhD in Public Administration, combining analytical thinking and a scientific approach with practical expertise in delivering educational initiatives for both academic institutions and businesses.</p>
+        <p>Possesses a strong background in designing educational courses and materials tailored to current market demands, as well as coordinating interdisciplinary teams. Successfully led multiple international educational projects. Specializes in the full cycle of educational product development - from concept and launch to ongoing performance evaluation.</p>
+      </section>
+
+      <section>
+        <h2>Educational Solutions and Digital Learning Product Management</h2>
+        
+    Hands-on experience in developing and implementing learning strategies grounded in a deep understanding of audience needs and modern educational trends.</li>
+    Proficient in a wide range of tools for designing, digitalizing, and scaling educational content, including:</li>
+          <ul>
+            <li>Instructional design and curriculum development</li>
+            <li>Creation of blended and online courses [LMS, SCORM, Articulate, Captivate]</li>
+            <li>Microlearning, adaptive formats, and interactive training programs</li>
+            <li>Application of AI technologies for personalized learning and learning analytics</li>
+            <li>Cross-functional team coordination (instructional designers, content developers, marketing)</li>
+            <li>Implementation of international projects and customized business-oriented learning solutions</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <ul>
+          <li>PhD in Public Administration</li>
+          <li>Higher Education in Law</li>
+          <li>Continuous learning via trainings and certifications in education, innovation & project management</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+        <div class="job">
+          <h3>Coordinator of International Educational Projects</h3>
+          <div class="details">Remote | 2023 – Present</div>
+          <ul>
+            <li>Participation in the development and implementation of educational initiatives across the EU region.</li>
+            <li>Designing curricula and methodological materials that address labor market demands, professional development, as well as needs of private clients and businesses.</li>
+            <li>Managing projects focused on delivering training courses for diverse audiences – from professional development programs to bespoke training commissioned by private clients.</li>
+            <li>Coordinating interdisciplinary teams and collaborating with international partners.</li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3>Associate Professor, Department of Public Administration</h3>
+          <div class="details">Remote | 2017 – Present</div>
+          <ul>
+            <li>Developing, updating, and adapting curricula, syllabi, and educational materials in accordance with educational programs and market needs.</li>
+            <li>Implementing innovative teaching methods and online courses to enhance student engagement.</li>
+            <li>Conducting research with publications in peer-reviewed journals and participation in international conferences, translating research outcomes into educational products.</li>
+            <li>Delivering lectures, leading seminars and practical sessions, and providing academic and research guidance.</li>
+            <li>Coordinating international projects in partnership with academic and educational institutions to implement joint educational initiatives.</li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="button-container">
+        <a href="index.html" class="action-button">Back</a>
+        <a href="resume.pdf" target="_blank" rel="noopener" class="action-button">Download PDF</a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    jQuery(document).ready(function($) {
+      // Animate sections on scroll
+      function checkVisibility() {
+        $('section').each(function() {
+          var elementTop = $(this).offset().top;
+          var windowBottom = $(window).scrollTop() + $(window).height();
+          if (elementTop < windowBottom - 50) {
+            $(this).addClass('visible');
+          }
+        });
+      }
+
+      // Run on page load
+      checkVisibility();
+
+      // Run on scroll
+      $(window).on('scroll', checkVisibility);
+
+      // Parallax effect for background
+      $(window).on('scroll', function() {
+        var scrollPosition = $(window).scrollTop();
+        $('body::before').css('transform', 'translateY(' + scrollPosition * 0.2 + 'px)');
+      });
+
+      // Debug
+      console.log('jQuery loaded:', typeof jQuery !== 'undefined');
+    });
+  </script>
+</body>
+</html>
