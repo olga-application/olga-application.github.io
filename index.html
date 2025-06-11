@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=1200, initial-scale=1, maximum-scale=1, user-scalable=yes" />
+  <meta name="viewport" content="width=1200, initial-scale=1, maximum-scale=2, user-scalable=yes" />
   <title>OLGA D. – Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     /* Reset styles */
     * {
@@ -21,6 +21,7 @@
       scroll-behavior: smooth;
       min-height: 100vh;
       min-width: 1200px;
+      overflow-x: hidden;
     }
 
     a {
@@ -33,6 +34,7 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 20px;
+      width: 1200px;
     }
 
     /* ========== Block 1: Intro ========== */
@@ -502,7 +504,7 @@
       position: absolute;
       left: 0;
       top: 0;
-      width: 30px;
+      width: 100%;
       height: 100%;
       background: linear-gradient(45deg, #00b8d4, #00e5ff);
       border-radius: 30px;
@@ -584,7 +586,6 @@
       }
       main {
         transform-origin: top center;
-        transform: scale(calc(100vw / 1200));
         width: 1200px;
         padding: 10px;
       }
@@ -626,9 +627,6 @@
 
     /* Ensure readability and modal positioning on very small screens */
     @media (max-width: 600px) {
-      main {
-        transform: scale(calc(100vw / 1200));
-      }
       .intro-text {
         padding: 30px 20px;
       }
@@ -781,6 +779,20 @@
   <script src="https://player.vimeo.com/api/player.js"></script>
   <script>
     jQuery(document).ready(function($) {
+      // Dynamic scaling for mobile to mimic desktop layout
+      function adjustScale() {
+        var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+        var scale = viewportWidth / 1200;
+        $('main').css('transform', 'scale(' + scale + ')');
+        $('body').css('height', (1200 * scale) + 'px');
+      }
+
+      // Run on page load
+      adjustScale();
+
+      // Run on window resize
+      $(window).on('resize', adjustScale);
+
       // Portfolio item animation on scroll
       function checkVisibility() {
         $('.portfolio-item').each(function() {
